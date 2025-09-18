@@ -40,6 +40,8 @@ def build_encoders(df):
         encoders[col] = le
     return encoders
 
+# 
+
 def encode_value(col, val, encoders):
     le = encoders.get(col)
     if le is None:
