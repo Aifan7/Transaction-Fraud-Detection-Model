@@ -113,11 +113,11 @@ def main():
                     df_up = pd.read_csv(uploaded)
                 else:
                     df_up = pd.read_excel(uploaded)
-                st.write('Preview of uploaded file:', df_up.head())
+                st.write('Preview of uploaded file:', df_up)
                 if model is not None and encoders is not None:
                     results = predict_df(df_up, model, encoders, feature_order)
                     out = pd.concat([df_up.reset_index(drop=True), results], axis=1)
-                    st.write('Predictions (first 10):', out.head(10))
+                    st.write('Predictions:', out)
                     st.markdown('Download results:')
                     csv = out.to_csv(index=False).encode('utf-8')
                     st.download_button('Download CSV with predictions', data=csv, file_name='predictions.csv', mime='text/csv')
